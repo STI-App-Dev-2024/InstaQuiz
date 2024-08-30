@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>InstaQuiz - Sign Up</title>
     <link rel="stylesheet" href="../css/signin.css">
+    <script type="module" src="../js/firebaseauth.js"></script>
 </head>
 <body>
-
     <nav>
         <div class="logo" id="logo">
             <h1><span class="logo-highlight">Insta</span>Quiz</h1>
@@ -35,11 +35,9 @@
                     <button type="submit" class="btn">Sign Up</button>
                 </form>
                 <p>Already have an account? <a href="signin.html">Sign In!</a></p>
+                <div id="signUpMessage" style="display:none;"></div>
             </div>
         </div>
     </div>
-    <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-auth.js"></script>
-    <script src="../js/signup_script.js"></script>
 </body>
 </html>
