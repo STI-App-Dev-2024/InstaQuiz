@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>InstaQuiz - Sign In</title>
     <link rel="stylesheet" href="../css/signin.css">
+    <script type="module" src="../js/firebaseauth.js"></script> <!-- Make sure this path is correct -->
 </head>
 <body>
 
@@ -18,8 +19,8 @@
             <li><a id="nav_faq" href="#">FAQ</a></li>
         </ul>
         <div class="auth-buttons">
-            <a href="#" class="login">Login</a>
-            <a href="#" class="signup">Sign up</a>
+            <a href="signin.html" class="login">Login</a>
+            <a href="signup.html" class="signup">Sign up</a>
         </div>
     </nav>
 
@@ -27,12 +28,13 @@
         <div class="signin-modal">
             <div class="signin-box">
                 <h2>Sign In</h2>
-                <form action="signin.html" method="post">
-                    <input type="email" placeholder="Enter your email address" required>
-                    <input type="password" placeholder="Enter your password" required>
+                <form id="signin-form">
+                    <input type="email" id="email" placeholder="Enter your email address" required>
+                    <input type="password" id="password" placeholder="Enter your password" required>
                     <button type="submit" class="btn">Sign In</button>
                 </form>
-                <p>Don't have an account? <a href="#">Sign Up!</a></p>
+                <p>Don't have an account? <a href="signup.html">Sign Up!</a></p>
+                <div id="signInMessage" style="display:none;"></div>
             </div>
         </div>
     </div>
