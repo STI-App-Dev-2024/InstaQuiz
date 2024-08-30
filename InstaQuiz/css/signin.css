@@ -14,7 +14,7 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem 2rem;
+    padding: 0.6rem 2rem;
     background-color: #f8f8f8;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
@@ -40,25 +40,25 @@ nav ul a {
     font-size: 1rem;
 }
 
-.auth-links {
+.auth-buttons {
     display: flex;
     gap: 1rem;
 }
 
-.auth-links .login,
-.auth-links .signup {
+.auth-buttons .login,
+.auth-buttons .signup {
     text-decoration: none;
     font-size: 1rem;
     padding: 0.5rem 1rem;
     border-radius: 5px;
 }
 
-.auth-links .login {
+.auth-buttons .login {
     color: #333;
     background-color: #f8f8f8;
 }
 
-.auth-links .signup {
+.auth-buttons .signup {
     color: #fff;
     background-color: #4CAF50;
 }

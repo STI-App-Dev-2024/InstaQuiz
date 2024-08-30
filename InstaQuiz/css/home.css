@@ -14,7 +14,7 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem 2rem;
+    padding: 0.6rem 2rem;
     background-color: #f8f8f8;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
@@ -76,6 +76,7 @@ header {
 }
 
 .content h2 {
+    margin-top: 8rem;
     font-size: 2.5rem;
     margin-bottom: 1rem;
 }
@@ -96,7 +97,7 @@ header {
 }
 
 .credits {
-    margin-top: 12rem;
+    margin-top: 15rem;
     font-size: 0.9rem;
     color: #666;
 }
