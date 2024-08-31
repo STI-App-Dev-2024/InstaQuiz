@@ -1,6 +1,6 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.13.1/firebase-app.js";
-import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.13.1/firebase-auth.js";
+import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.13.1/firebase-auth.js";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
@@ -26,25 +26,32 @@ function showMessage(message, divId) {
   }, 5000);
 }
 
-document.getElementById('signin-form').addEventListener('submit', (event) => {
+// Sign-up functionality
+document.getElementById('signup-form').addEventListener('submit', (event) => {
   event.preventDefault();
 
   const email = document.getElementById('email').value;
   const password = document.getElementById('password').value;
+  const confirmPassword = document.getElementById('confirm-password').value;
 
-  signInWithEmailAndPassword(auth, email, password)
+  if (password !== confirmPassword) {
+    showMessage('Passwords do not match', 'signUpMessage');
+    return;
+  }
+
+  createUserWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
-      showMessage('Login successful', 'signInMessage');
+      showMessage('Signup successful', 'signUpMessage');
       const user = userCredential.user;
       localStorage.setItem('loggedInUserId', user.uid);
       window.location.href = 'homepage.html'; // Redirect to your home page or dashboard
     })
     .catch((error) => {
       const errorCode = error.code;
-      if (errorCode === 'auth/invalid-email' || errorCode === 'auth/wrong-password') {
-        showMessage('Incorrect Email or Password', 'signInMessage');
+      if (errorCode === 'auth/email-already-in-use') {
+        showMessage('Email already in use', 'signUpMessage');
       } else {
-        showMessage('Error during sign-in', 'signInMessage');
+        showMessage('Error during sign-up', 'signUpMessage');
       }
     });
 });
