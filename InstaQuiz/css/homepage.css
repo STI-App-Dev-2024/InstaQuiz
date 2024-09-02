@@ -56,7 +56,7 @@ body {
 
 header {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-between;  
     align-items: center;
     padding-bottom: 20px;
     border-bottom: 1px solid #ccc;
@@ -73,11 +73,17 @@ header {
 .user-profile {
     display: flex;
     align-items: center;
+    position: relative;
+    margin-left: auto;
 }
 
 .user-icon {
     font-size: 24px;
     margin-right: 10px;
+}
+
+.user-name {
+    margin-right: 10px;  
 }
 
 .logout {
@@ -92,6 +98,46 @@ header {
 h2 {
     font-size: 28px;
     color: #333;
+}
+.tabs-nav {
+    display: flex;
+    border-bottom: 2px solid #4caf50;
+    margin-bottom: 20px;
+}
+
+.tabs-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+
+.tabs-nav ul li {
+    padding: 10px 20px;
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+    transition: background-color 0.3s, border-bottom-color 0.3s;
+}
+
+.tabs-nav ul li.active {
+    background-color: #4caf50;
+    color: #fff;
+    border-bottom-color: #fff;
+}
+
+.tabs-content {
+    padding: 20px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+}
+
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
 }
 
 .upload-area {
@@ -122,4 +168,29 @@ h2 {
 
 .convert-btn:hover {
     background-color: #45a049;
+}
+
+.profile-drawer {
+    display: none;  
+    position: absolute;
+    top: 40px;  
+    right: 0;  
+    background-color: #fff;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    width: 150px;
+    padding: 10px;
+    z-index: 1000;
+}
+
+.profile-drawer a {
+    display: block;
+    padding: 8px 10px;
+    color: #333;
+    text-decoration: none;
+    border-radius: 4px;
+}
+
+.profile-drawer a:hover {
+    background-color: #f0f0f0;
 }

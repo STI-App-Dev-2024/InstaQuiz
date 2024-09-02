@@ -1,6 +1,7 @@
 // Import Firebase modules
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js';
 import { getAuth, createUserWithEmailAndPassword, updateProfile } from 'https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js';
+import { getFirestore, doc, setDoc } from 'https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore.js';
 
 // Firebase configuration
 const firebaseConfig = {
@@ -15,6 +16,7 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
+const db = getFirestore(app); // Initialize Firestore
 
 // Get references to the form and input fields
 const signupForm = document.getElementById('signup-form');
@@ -43,9 +45,17 @@ signupForm.addEventListener('submit', (e) => {
             // Signed in 
             const user = userCredential.user;
             console.log("User signed up:", user);
+
             // Optionally, update the user's profile with their name
             return updateProfile(user, {
                 displayName: name
+            }).then(() => {
+                // Save the user's name and email to Firestore
+                const userRef = doc(db, 'users', user.uid);
+                return setDoc(userRef, {
+                    username: name,
+                    email: email
+                });
             });
         })
         .then(() => {
