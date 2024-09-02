@@ -6,6 +6,7 @@
     <title>InstaQuiz - Convert PDF to Quiz</title>
     <link rel="stylesheet" href="../css/homepage.css">
     <script type="module" src="../js/homepage.js"></script>
+ 
 </head>
 <body>
     <div class="sidebar">
@@ -14,6 +15,7 @@
             <ul>
                 <li><a href="#" class="active">Home</a></li>
                 <li><a href="#">History</a></li>
+                <li><a href="#">My Quizzes</a></li>
             </ul>
         </nav>
     </div>
@@ -22,20 +24,42 @@
             <button class="menu-btn">&#9776;</button>
             <div class="user-profile">
                 <span class="user-icon">&#128100;</span>
-                <a href="#" class="logout">Logout</a>
+                <span class="user-name">Hello, [User Name]!</span>  
+                <div class="profile-drawer" id="profileDrawer">
+                    <a href="#">Profile</a>
+                    <a href="#" class="logout">Logout</a>
+                </div>
             </div>
         </header>
         <div class="content">
+            <h2>Welcome to InstaQuiz, [User Name]!</h2>   
             <h2>Convert PDF to Quiz</h2>
-            <div class="upload-area">
-                
-                <div class="upload-box">
-                    <p>Click or drag and drop to upload</p>
-                    <p>PDF size limit: -MB</p>
+        
+            <!-- Tabs Navigation -->
+            <nav class="tabs-nav">
+                <ul>
+                    <li class="tab active" data-tab="create-quiz">Create Quiz</li>
+                    <li class="tab" data-tab="answered-quiz">Answered Quiz</li>
+                </ul>
+            </nav>
+        
+            <!-- Tabs Content -->
+            <div class="tabs-content">
+                <div id="create-quiz" class="tab-content active">
+                    <div class="upload-area">
+                        <div class="upload-box">
+                            <p>Click or drag and drop to upload</p>
+                            <p>PDF size limit: -MB</p>
+                        </div>
+                        <button class="convert-btn">Convert now!</button>
+                    </div>
                 </div>
-                <button class="convert-btn">Convert now!</button>
+                <div id="answered-quiz" class="tab-content">
+                    <p>Content for Answered Quiz tab will go here.</p>
+                </div>
             </div>
         </div>
+        
     </div>
 </body>
 </html>
