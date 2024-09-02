@@ -1,4 +1,8 @@
-// Import and configure Firebase
+// Import Firebase modules
+import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js';
+import { getAuth, createUserWithEmailAndPassword, updateProfile } from 'https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js';
+
+// Firebase configuration
 const firebaseConfig = {
     apiKey: "AIzaSyDoLbJdlLUsfMp09PwA_31TYcetC3JxIWs",
     authDomain: "instaquiz-37134.firebaseapp.com",
@@ -9,7 +13,8 @@ const firebaseConfig = {
 };
 
 // Initialize Firebase
-firebase.initializeApp(firebaseConfig);
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
 
 // Get references to the form and input fields
 const signupForm = document.getElementById('signup-form');
@@ -33,19 +38,19 @@ signupForm.addEventListener('submit', (e) => {
     }
 
     // Sign up with Firebase Authentication
-    firebase.auth().createUserWithEmailAndPassword(email, password)
+    createUserWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
             // Signed in 
             const user = userCredential.user;
             console.log("User signed up:", user);
             // Optionally, update the user's profile with their name
-            return user.updateProfile({
+            return updateProfile(user, {
                 displayName: name
             });
         })
         .then(() => {
             // Redirect to sign in page or dashboard
-            window.location.href = 'signin.html';
+            window.location.href = 'homepage.html';
         })
         .catch((error) => {
             console.error("Error signing up:", error.message);
