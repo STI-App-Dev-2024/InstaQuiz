@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>InstaQuiz - Sign Up</title>
+    <link rel="stylesheet" href="../css/signin.css">
+    <script type="module" src="../js/signup.js"></script>
+</head>
+<body>
+    <nav>
+        <div class="logo" id="logo">
+            <h1><span class="logo-highlight">Insta</span>Quiz</h1>
+        </div>
+        <ul class="nav-links">
+            <li><a id="nav_home" href="#">Home</a></li>
+            <li><a id="nav_contact" href="#">Contact</a></li>
+            <li><a id="nav_faq" href="#">FAQ</a></li>
+        </ul>
+        <div class="auth-buttons">
+            <a href="signin.html" class="login">Login</a>
+            <a href="signup.html" class="signup">Sign Up</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="signin-modal">
+            <div class="signin-box">
+                <h2>Sign Up</h2>
+                <form id="signup-form">
+                    <input type="text" id="name" placeholder="Enter your name" required>
+                    <input type="email" id="email" placeholder="Enter your email address" required>
+                    <input type="password" id="password" placeholder="Enter your password" required>
+                    <input type="password" id="confirm-password" placeholder="Confirm your password" required>
+                    <button type="submit" class="btn">Sign Up</button>
+                </form>
+                <p>Already have an account? <a href="signin.html">Sign In!</a></p>
+                <div id="signUpMessage" style="display:none;"></div>
+            </div>
+        </div>
+    </div>
+    <script src="../js/nav_script.js"></script>
+</body>
+</html>
