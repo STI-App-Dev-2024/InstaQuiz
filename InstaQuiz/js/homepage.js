@@ -46,55 +46,12 @@ document.querySelector('.logout').addEventListener('click', function(event) {
     event.preventDefault();
     // Confirm logout action
     if (confirm("Are you sure you want to logout?")) {
-        // Perform logout logic here
-        // This might involve clearing session storage, redirecting, etc.
         alert("Logged out successfully!");
-        window.location.href = 'home.html'; // Redirect to login page
+        window.location.href = 'welcome.html'; 
     }
 });
 
-// PDF Upload and Conversion
-document.querySelector('.upload-box').addEventListener('click', function() {
-    // Trigger file selection dialog
-    const input = document.createElement('input');
-    input.type = 'file';
-    input.accept = 'application/pdf';
-    input.onchange = function(event) {
-        const file = event.target.files[0];
-        if (file) {
-            // Display file name or perform file validation here
-            alert(`File "${file.name}" selected. Ready to convert!`);
-            // Trigger conversion process
-            convertPdfToQuiz(file);
-        }
-    };
-    input.click();
-});
-
-// Function to handle PDF to Quiz conversion
-function convertPdfToQuiz(file) {
-    // Example logic for conversion
-    const formData = new FormData();
-    formData.append('pdfFile', file);
-
-    // Replace the URL with your server endpoint
-    fetch('your-server-endpoint', {
-        method: 'POST',
-        body: formData,
-    })
-    .then(response => response.json())
-    .then(data => {
-        // Handle successful conversion
-        alert("Conversion successful! Quiz has been generated.");
-        // Redirect to quiz page or display the quiz
-    })
-    .catch(error => {
-        // Handle errors
-        console.error('Error:', error);
-        alert("An error occurred during conversion.");
-    });
-}
-
+ 
 // Drag and Drop functionality
 document.querySelector('.upload-box').addEventListener('dragover', function(event) {
     event.preventDefault();
@@ -122,6 +79,7 @@ document.querySelector('.upload-box').addEventListener('drop', function(event) {
         alert('Please drop a valid PDF file.');
     }
 });
+
 // JavaScript to toggle profile drawer
 document.querySelector('.user-profile').addEventListener('click', function() {
     const profileDrawer = document.getElementById('profileDrawer');
@@ -141,7 +99,7 @@ document.addEventListener('click', function(event) {
     }
 });
 
-//tab function
+// Tab function
 document.addEventListener('DOMContentLoaded', () => {
     const tabs = document.querySelectorAll('.tab');
     const tabContents = document.querySelectorAll('.tab-content');
@@ -160,3 +118,5 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 });
+
+ 
