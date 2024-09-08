@@ -57,9 +57,14 @@
             <div class="tabs-content">
                 <div id="create-quiz" class="tab-content active">
                     <div class="upload-area">
-                        <div class="upload-box">
+                        <div class="upload-box" id="uploadBox">
                             <p>Click or drag and drop to upload</p>
                             <p>PDF size limit: -MB</p>
+                            <input type="file" id="fileInput" style="display:none;">
+                        </div>
+                        <div id="fileDetails" style="display:none;">
+                            <img src="/InstaQuiz/InstaQuiz/images/pdf-icon.png" alt="PDF icon" id="pdfIcon" style="width: 24px; height: 24px;">
+                            <span id="fileName"></span>
                         </div>
                         <button class="convert-btn">Convert now!</button>
                     </div>
@@ -68,6 +73,7 @@
                     <p>Content for Answered Quiz tab will go here.</p>
                 </div>
             </div>
+            
         </div>
         
     </div>

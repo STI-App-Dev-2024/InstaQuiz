@@ -73,12 +73,48 @@ document.querySelector('.upload-box').addEventListener('drop', function(event) {
     const file = event.dataTransfer.files[0];
     if (file && file.type === 'application/pdf') {
         alert(`File "${file.name}" dropped. Ready to convert!`);
-        // Trigger conversion process
+         
         convertPdfToQuiz(file);
     } else {
         alert('Please drop a valid PDF file.');
     }
 });
+
+// Trigger when Click the upload Box
+document.addEventListener('DOMContentLoaded', () => {
+    const uploadBox = document.getElementById('uploadBox');
+    const fileInput = document.getElementById('fileInput');
+    const fileDetails = document.getElementById('fileDetails');
+    const fileName = document.getElementById('fileName');
+    const pdfIcon = document.getElementById('pdfIcon');
+    
+    if (!uploadBox || !fileInput || !fileDetails || !fileName || !pdfIcon) {
+        console.error('One or more elements not found');
+        return;
+    }
+
+    uploadBox.addEventListener('click', () => {
+        fileInput.click();   
+    });
+
+    fileInput.addEventListener('change', (event) => {
+        const files = event.target.files;
+        if (files.length > 0) {
+            const selectedFile = files[0];
+            if (selectedFile.type === 'application/pdf') {
+                fileName.textContent = selectedFile.name;
+                fileDetails.style.display = 'flex';  
+                fileName.textContent = 'Please upload a PDF file.';
+                fileDetails.style.display = 'none';  
+            }
+        } else {
+            fileDetails.style.display = 'none';  
+        }
+    });
+});
+
+
+
 
 // JavaScript to toggle profile drawer
 document.querySelector('.user-profile').addEventListener('click', function() {
