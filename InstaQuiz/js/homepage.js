@@ -103,9 +103,11 @@ document.addEventListener('DOMContentLoaded', () => {
             const selectedFile = files[0];
             if (selectedFile.type === 'application/pdf') {
                 fileName.textContent = selectedFile.name;
-                fileDetails.style.display = 'flex';  
+                fileDetails.style.display = 'flex'; 
+                 
+            }else{
                 fileName.textContent = 'Please upload a PDF file.';
-                fileDetails.style.display = 'none';  
+                fileDetails.style.display = 'none'; 
             }
         } else {
             fileDetails.style.display = 'none';  
